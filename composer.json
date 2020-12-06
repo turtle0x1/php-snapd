@@ -15,7 +15,7 @@
         "php-http/client-implementation": "^1.0",
         "php-http/client-common": "^1.1",
         "php-http/cache-plugin": "^1.6"
-    }
+    },
     "autoload": {
         "psr-4": {
             "dhope0000\\Snap\\": "src"
