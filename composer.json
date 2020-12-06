@@ -1,0 +1,24 @@
+{
+    "name": "dhope0000/snap",
+    "description": "Connect to snapd instance and perform actions",
+    "authors": [
+        {
+            "name": "Daniel Hope",
+            "email": "dhope0000@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "~5.5|~7.0",
+        "psr/http-message": "^1.0",
+        "php-http/httplug": "^1.0",
+        "php-http/discovery": "^1.0",
+        "php-http/client-implementation": "^1.0",
+        "php-http/client-common": "^1.1",
+        "php-http/cache-plugin": "^1.6"
+    }
+    "autoload": {
+        "psr-4": {
+            "dhope0000\\Snap\\": "src"
+        }
+    }
+}
