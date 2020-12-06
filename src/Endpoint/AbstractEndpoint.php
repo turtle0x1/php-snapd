@@ -28,8 +28,7 @@ abstract class AbstractEndpoint
     protected function get($path, array $parameters = [], array $requestHeaders = [])
     {
         $response = $this->client->getHttpClient()->get(
-            $this->buildPath($path, $parameters),
-            $this->addAuthTokens($requestHeaders)
+            $this->buildPath($path, $parameters)
         );
 
         return ResponseMediator::getContent($response);
@@ -47,7 +46,6 @@ abstract class AbstractEndpoint
     {
         $response = $this->client->getHttpClient()->post(
             $this->buildPath($path, $parameters),
-            $this->addAuthTokens($requestHeaders),
             $this->createJsonBody($data)
         );
 
@@ -66,7 +64,6 @@ abstract class AbstractEndpoint
     {
         $response = $this->client->getHttpClient()->put(
             $this->buildPath($path, $parameters),
-            $this->addAuthTokens($requestHeaders),
             $this->createJsonBody($data)
         );
 
@@ -85,7 +82,6 @@ abstract class AbstractEndpoint
     {
         $response = $this->client->getHttpClient()->patch(
             $this->buildPath($path, $parameters),
-            $this->addAuthTokens($requestHeaders),
             $this->createJsonBody($data)
         );
 
@@ -104,18 +100,10 @@ abstract class AbstractEndpoint
     protected function delete($path, array $parameters = [], array $requestHeaders = [])
     {
         $response = $this->client->getHttpClient()->delete(
-            $this->buildPath($path, $parameters),
-            $this->addAuthTokens($requestHeaders)
+            $this->buildPath($path, $parameters)
         );
 
         return ResponseMediator::getContent($response);
-    }
-
-    private function addAuthTokens($requestHeaders)
-    {
-        $requestHeaders["X-User-Id"] = $this->client->getUserId();
-        $requestHeaders["X-Auth-Token"] = $this->client->getAuthToken();
-        return $requestHeaders;
     }
 
     /**
