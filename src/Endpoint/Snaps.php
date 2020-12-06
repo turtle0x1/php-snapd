@@ -13,4 +13,9 @@ class Snaps extends AbstractEndpoint
     {
         return $this->get($this->getEndpoint());
     }
+
+    public function info(string $name)
+    {
+        return $this->get($this->getEndpoint() . "/$name");
+    }
 }
